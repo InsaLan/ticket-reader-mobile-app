@@ -2,7 +2,6 @@ package com.insalan.ticketreader.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,7 +43,7 @@ public class TicketDisplayActivity extends AppCompatActivity {
         // Buttons interactions
         menuButton.setOnClickListener(v -> backToMenu());
 
-        if( ticket.isTicketScanned() ) {
+        if (ticket.isTicketScanned()) {
             validateButton.setVisibility(View.GONE);
         } else {
             // Preparing the validation of the ticket
@@ -62,11 +61,6 @@ public class TicketDisplayActivity extends AppCompatActivity {
                                 } else {
                                     errorText.setText(apiErr.getErrorMessage());
                                 }
-                            },
-                            // Error callback if we cannot scan any qrcode
-                            apiError -> {
-                                Log.e("API REQUEST", apiError.getMessage(), apiError);
-                                Toast.makeText(getApplicationContext(), "Erreur durant la validation : " + apiError.getMessage(), Toast.LENGTH_LONG).show();
                             });
                 }
             });
@@ -79,7 +73,7 @@ public class TicketDisplayActivity extends AppCompatActivity {
         backToMenu();
     }
 
-    public void backToMenu(){
+    public void backToMenu() {
         final Intent intent = new Intent(TicketDisplayActivity.this, MenuActivity.class);
         startActivity(intent);
     }

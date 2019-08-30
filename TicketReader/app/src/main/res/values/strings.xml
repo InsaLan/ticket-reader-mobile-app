@@ -34,5 +34,6 @@
 
     <!-- Strings related to error displaying -->
     <string name="error_title">Message d\'erreur</string>
+    <string name="error_network_timeout">Timeout lors de la connexion</string>
 
 </resources>

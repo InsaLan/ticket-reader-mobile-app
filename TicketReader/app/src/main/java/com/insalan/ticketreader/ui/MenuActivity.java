@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,7 +31,7 @@ public final class MenuActivity extends AppCompatActivity {
         scanButton.setOnClickListener(v -> {
             final IntentIntegrator integrator = new IntentIntegrator(MenuActivity.this);
             integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
-            integrator.setBeepEnabled(false);
+            integrator.setBeepEnabled(true);
             integrator.setBarcodeImageEnabled(true);
             integrator.initiateScan();
         });
@@ -67,11 +66,6 @@ public final class MenuActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
 
-                        },
-                        // Error callback if we cannot scan any qrcode
-                        apiError -> {
-                            Log.e("API REQUEST", apiError.getMessage(), apiError);
-                            Toast.makeText(getApplicationContext(), "Error while searching for qrcode, token = " + token, Toast.LENGTH_LONG).show();
                         });
             }
         }
