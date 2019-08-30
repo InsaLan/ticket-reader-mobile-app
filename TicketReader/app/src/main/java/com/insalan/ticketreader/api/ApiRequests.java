@@ -72,7 +72,7 @@ public class ApiRequests {
     }
 
 
-    public static void validateTicket(final Context context, final String ticketToken, final Consumer<ApiErr> callback) {
+    public static void validateTicket(final Context context, final String ticketToken, final Consumer<ApiResponse> callback) {
         // Creating the URL for the request
         Uri.Builder builder = new Uri.Builder();
         builder.scheme(ConfigServer.SCHEME)
@@ -82,12 +82,12 @@ public class ApiRequests {
         String uri = builder.build().toString();
 
         // Creating the request
-        RequestService.getInstance(context).postJsonParsed(uri, createTokenData(ticketToken), ApiErr.class, createHeaders(context),
+        RequestService.getInstance(context).postJsonParsed(uri, createTokenData(ticketToken), ApiResponse.class, createHeaders(context),
                 // Calls the callback, that will handle the ticket, display it or do actions with it
-                new Response.Listener<ApiErr>() {
+                new Response.Listener<ApiResponse>() {
                     @Override
-                    public void onResponse(final ApiErr error) {
-                        callback.accept(error);
+                    public void onResponse(final ApiResponse response) {
+                        callback.accept(response);
                     }
                 },
                 // Manages the VolleyError

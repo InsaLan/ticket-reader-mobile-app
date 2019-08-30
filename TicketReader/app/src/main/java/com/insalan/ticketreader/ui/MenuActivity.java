@@ -59,8 +59,8 @@ public final class MenuActivity extends AppCompatActivity {
                                 final Intent intent = new Intent(this, TicketDisplayActivity.class);
                                 intent.putExtra("ticket", ticket);
                                 startActivity(intent);
-                            } else if (apiResponse.getClass().equals(ApiErr.class)) {
-                                ApiErr apiErr = (ApiErr) apiResponse;
+                            } else if (apiResponse.hasError()) {
+                                ApiErr apiErr = apiResponse.getErr();
                                 final Intent intent = new Intent(this, ErrorActivity.class);
                                 intent.putExtra("errorMessage", apiErr.getErrorMessage());
                                 startActivity(intent);

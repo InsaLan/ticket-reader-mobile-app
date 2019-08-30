@@ -13,6 +13,8 @@ import com.insalan.ticketreader.R;
 import com.insalan.ticketreader.api.ApiRequests;
 import com.insalan.ticketreader.data.model.Ticket;
 
+import org.w3c.dom.Text;
+
 public class TicketDisplayActivity extends AppCompatActivity {
 
     @Override
@@ -48,20 +50,24 @@ public class TicketDisplayActivity extends AppCompatActivity {
         } else {
             // Preparing the validation of the ticket
             validateButton.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View v) {
 
+                    clearError(errorText);
+
                     ApiRequests.getInstance().validateTicket(getApplicationContext(), ticket.getToken(),
                             // Callback creating an activity with ticket received
-                            apiErr -> {
-                                if (!apiErr.hasError()) {
+                            apiResponse -> {
+                                if (!apiResponse.hasError()) {
                                     // No error during validation, we go back to menu
                                     Toast.makeText(getApplicationContext(), "Ticket validé !", Toast.LENGTH_LONG).show();
                                     backToMenu();
                                 } else {
-                                    errorText.setText(apiErr.getErrorMessage());
+                                    errorText.setText(apiResponse.getErr().getErrorMessage());
                                 }
                             });
+
                 }
             });
         }
@@ -76,5 +82,9 @@ public class TicketDisplayActivity extends AppCompatActivity {
     public void backToMenu() {
         final Intent intent = new Intent(TicketDisplayActivity.this, MenuActivity.class);
         startActivity(intent);
+    }
+
+    private void clearError(final TextView errorText){
+        errorText.setText("");
     }
 }
