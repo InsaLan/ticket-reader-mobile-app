@@ -62,6 +62,7 @@ public final class MenuActivity extends AppCompatActivity {
                             } else if (apiResponse.hasError()) {
                                 ApiErr apiErr = apiResponse.getErr();
                                 final Intent intent = new Intent(this, ErrorActivity.class);
+                                intent.putExtra("errorExplanation", apiErr.getErrorExplanation(getApplicationContext()));
                                 intent.putExtra("errorMessage", apiErr.getErrorMessage());
                                 startActivity(intent);
                             }

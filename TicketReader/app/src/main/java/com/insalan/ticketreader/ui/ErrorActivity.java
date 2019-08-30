@@ -16,14 +16,17 @@ public class ErrorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.error_view);
 
+        final String errorExplanation = (String) getIntent().getSerializableExtra("errorExplanation");
         final String errorMessage = (String) getIntent().getSerializableExtra("errorMessage");
 
         // Getting all the objects in the view
         final Button menuButton = findViewById(R.id.ticket_view_menu_button);
-        TextView errorText = findViewById(R.id.error_view_message);
+        TextView textErrorExplanation = findViewById(R.id.error_view_explanation);
+        TextView textErrorMessage = findViewById(R.id.error_view_message);
 
         // Displaying the ticket's informations
-        errorText.setText(errorMessage);
+        textErrorExplanation.setText(errorExplanation);
+        textErrorMessage.setText("ERROR: " + errorMessage);
 
         // Buttons interactions
         menuButton.setOnClickListener(v -> backToMenu());
@@ -36,7 +39,7 @@ public class ErrorActivity extends AppCompatActivity {
         backToMenu();
     }
 
-    public void backToMenu(){
+    public void backToMenu() {
         final Intent intent = new Intent(ErrorActivity.this, MenuActivity.class);
         startActivity(intent);
     }

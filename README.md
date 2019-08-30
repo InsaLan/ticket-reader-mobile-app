@@ -11,4 +11,4 @@ Mobile application used to scan tickets for the InsaLan event.
 - Vérifier lors de la "connexion" si l'utilisateur a les droits ? (ajouter un appel à l'api "login" ?)
 - Revoir l'UI, les boutons (bouton central avec icône de QR Code, etc)
 - Changer le logo
-- Changer les couleurs
+- Changer les couleurs (créer des styles directement)

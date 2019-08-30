@@ -34,6 +34,21 @@
 
     <!-- Strings related to error displaying -->
     <string name="error_title">Message d\'erreur</string>
+
+    <!-- Connection errors -->
     <string name="error_network_timeout">Timeout lors de la connexion</string>
+
+    <!-- API errors -->
+    <string name="error_ticket_not_found">Le QR code scanné ne correspond pas à un ticket connu. Il peut y avoir eu une erreur lors du scan. \n
+    S\'il y a eu un changement de joueur, il peut s\'agir d\'un ancien ticket, non valide à présent (un nouveau ticket est renvoyé en cas de changement de joueur). \n
+    \n
+    Demander aux membres du tournois et de l\'équipe Web si c\'est le cas.</string>
+
+    <string name="error_participant_not_found">Le ticket n\'est attribué à aucun participant (problème dans la base de données). \n
+    \n
+    Demander de l\'aide à l\'équipe Web pour ce cas précis.</string>
+
+    <string name="error_already_scanned">Le ticket présenté a déjà été scanné.</string>
+
 
 </resources>

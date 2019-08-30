@@ -4,19 +4,23 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ui.TicketDisplayActivity">
+    tools:context=".ui.TicketDisplayActivity"
+    android:background="@color/colorRed">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        >
 
         <Button
             android:id="@+id/ticket_view_menu_button"
             android:layout_width="80dp"
             android:layout_height="42dp"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="4dp"
             android:background="@color/colorYellow"
             android:text="@string/button_menu" />
 
@@ -26,14 +30,34 @@
 
             android:paddingTop="20dp"
             android:paddingBottom="3dp"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center"
             android:text="@string/error_title"
+            android:textColor="@color/colorForeground"
             />
 
         <LinearLayout
             android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/error_view_explanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="@color/colorForeground" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -44,10 +68,11 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingBottom="3dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@color/colorRed" />
+                android:layout_marginRight="3dp"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:gravity="right"
+                android:textColor="@color/colorBackground" />
         </LinearLayout>
 
     </LinearLayout>
