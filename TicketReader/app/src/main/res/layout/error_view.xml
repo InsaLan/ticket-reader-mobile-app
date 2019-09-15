@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".ui.TicketDisplayActivity"
-    android:background="@color/colorRed">
+    android:background="@color/colorError">
 
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_height="42dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="4dp"
-            android:background="@color/colorYellow"
+            android:background="@color/colorSecondary"
             android:text="@string/button_menu" />
 
         <TextView

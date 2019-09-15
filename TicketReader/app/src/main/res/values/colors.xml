@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/colorBlue</color>
-    <color name="colorPrimaryDark">@color/colorPrimary</color>
-    <color name="colorAccent">@color/colorRed</color>
-    <color name="colorBlue">#00bee6</color>
-    <color name="colorBlueDark">#006eff</color>
-    <color name="colorRed">#ff5050</color>
-    <color name="colorYellow">#ffb400</color>
-    <color name="colorLightGreen">#00cd78</color>
+    <color name="colorPrimary">#4fa5db</color>
+    <color name="colorPrimaryDark">#0076a9</color>
+    <color name="colorPrimaryLight">#86d6ff</color>
+    <color name="colorError">#b00020</color>
+    <color name="colorSecondary">#f27221</color>
+    <color name="colorSecondaryDark">#b94300</color>
+    <color name="colorSecondaryLight">#ffa351</color>
     <color name="onChangeBgColor">#8c8c8c</color>
     <color name="colorForeground">#fff</color>
     <color name="colorBackground">#000</color>

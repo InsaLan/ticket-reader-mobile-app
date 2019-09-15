@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,8 +28,11 @@ public final class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_view);
 
+        final TextView infoUser = findViewById(R.id.text_infos_user);
         final Button scanButton = findViewById(R.id.scan_button);
-        final Button logoutButton = findViewById(R.id.logout_button);
+        final ImageButton logoutButton = findViewById(R.id.logout_button);
+
+        infoUser.setText("Connecté comme : " + Storage.getUsername(getApplicationContext()));
 
         scanButton.setOnClickListener(v -> {
             final IntentIntegrator integrator = new IntentIntegrator(MenuActivity.this);
@@ -39,6 +45,7 @@ public final class MenuActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(v -> askLogout());
     }
 
+    // Function called when finishing a scan (scan activity auto returns in this activity)
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         final IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -49,6 +56,7 @@ public final class MenuActivity extends AppCompatActivity {
             if (token == null) {
                 Log.d(TAG, "No qrcode in result");
             } else {
+                Toast.makeText(getApplicationContext(), token, Toast.LENGTH_LONG).show();
                 ApiRequests.getInstance().getTicket(getApplicationContext(), token,
                         // Callback creating an activity with ticket received
                         apiResponse -> {

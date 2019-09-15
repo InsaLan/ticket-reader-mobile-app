@@ -49,7 +49,7 @@ public class ApiRequests {
      * API REQUESTS
      */
 
-    public static void getTicket(final Context context, final String ticketToken, final Consumer<ApiResponse> callback) {
+    public void getTicket(final Context context, final String ticketToken, final Consumer<ApiResponse> callback) {
         // Creating the URL for the request
         Uri.Builder builder = new Uri.Builder();
         builder.scheme(ConfigServer.SCHEME)
@@ -72,7 +72,7 @@ public class ApiRequests {
     }
 
 
-    public static void validateTicket(final Context context, final String ticketToken, final Consumer<ApiResponse> callback) {
+    public void validateTicket(final Context context, final String ticketToken, final Consumer<ApiResponse> callback) {
         // Creating the URL for the request
         Uri.Builder builder = new Uri.Builder();
         builder.scheme(ConfigServer.SCHEME)
