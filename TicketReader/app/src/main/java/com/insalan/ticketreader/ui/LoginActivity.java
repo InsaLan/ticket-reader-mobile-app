@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.insalan.ticketreader.R;
+import com.insalan.ticketreader.api.ApiRequests;
 import com.insalan.ticketreader.data.Storage;
 
 public final class LoginActivity extends AppCompatActivity {
@@ -70,8 +72,13 @@ public final class LoginActivity extends AppCompatActivity {
     private void login(final EditText usernameField, final EditText passwordField, final ProgressBar loadingProgressBar) {
         loadingProgressBar.setVisibility(View.VISIBLE);
         Storage.storeUserCredentials(getApplicationContext(), usernameField.getText().toString(), passwordField.getText().toString());
-        Intent menuActivity = new Intent(LoginActivity.this, MenuActivity.class);
-        startActivity(menuActivity);
-        finish();
+        Log.e("LOGIN", usernameField.getText().toString());
+        ApiRequests.getInstance().login(getApplicationContext(),
+                res -> {
+                    Log.d("LOGIN", "Accepted");
+                    Intent menuActivity = new Intent(LoginActivity.this, MenuActivity.class);
+                    startActivity(menuActivity);
+                    finish();
+                });
     }
 }

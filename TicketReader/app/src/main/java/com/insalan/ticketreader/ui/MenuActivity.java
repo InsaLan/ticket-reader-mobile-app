@@ -89,14 +89,16 @@ public final class MenuActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setMessage(getString(R.string.logout_question))
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
-                    Log.e("Logout", "Before delete");
-                    Storage.deleteUsername(MenuActivity.this.getApplicationContext());
-                    Storage.deletePassword(MenuActivity.this.getApplicationContext());
-
-                    Log.e("Logout", "After delete");
-                    final Intent loginActivity = new Intent(this, LoginActivity.class);
-                    this.startActivity(loginActivity);
-                    this.finish();
+                    ApiRequests.getInstance().logout(getApplicationContext(),
+                            res -> {
+                                Log.d("LOGOUT", "Accepted");
+                                Log.d("LOGOUT", "Before delete");
+                                Storage.clear(this.getApplicationContext());
+                                Log.d("LOGOUT", "After delete");
+                                final Intent loginActivity = new Intent(this, LoginActivity.class);
+                                this.startActivity(loginActivity);
+                                this.finish();
+                            });
                 })
                 .setNegativeButton(R.string.no, (dialog, which) -> {
                     // no action

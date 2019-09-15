@@ -48,6 +48,48 @@ public class ApiRequests {
     /*
      * API REQUESTS
      */
+    public void login(final Context context, final Consumer<String> callback) {
+        // Creating the URL for the request
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme(ConfigServer.SCHEME)
+                .authority(ConfigServer.AUTHORITY)
+                .appendPath(ConfigServer.BASE_API)
+                .appendPath("login");
+        String uri = builder.build().toString();
+
+        // Creating the request
+        RequestService.getInstance(context).get(uri, createHeaders(context),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(final String res) {
+                        callback.accept(res);
+                    }
+                },
+                // Manages the VolleyError
+                volleyError -> handleVolleyError(context, volleyError));
+    }
+
+    public void logout(final Context context, final Consumer<String> callback) {
+        // Creating the URL for the request
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme(ConfigServer.SCHEME)
+                .authority(ConfigServer.AUTHORITY)
+                .appendPath(ConfigServer.BASE_API)
+                .appendPath("logout");
+        String uri = builder.build().toString();
+
+        // Creating the request
+        RequestService.getInstance(context).get(uri, createHeaders(context),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(final String res) {
+                        callback.accept(res);
+                    }
+                },
+                // Manages the VolleyError
+                volleyError -> handleVolleyError(context, volleyError));
+    }
+
 
     public void getTicket(final Context context, final String ticketToken, final Consumer<ApiResponse> callback) {
         // Creating the URL for the request
@@ -123,6 +165,7 @@ public class ApiRequests {
             }
 
             // Launches the login activity again, since there is a problem with the connected user
+            Storage.clear(context);
             final Intent loginActivity = new Intent(context, LoginActivity.class);
             context.startActivity(loginActivity);
 

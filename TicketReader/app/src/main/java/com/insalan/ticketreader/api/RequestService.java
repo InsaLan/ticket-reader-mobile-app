@@ -2,8 +2,11 @@ package com.insalan.ticketreader.api;
 
 import android.content.Context;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
@@ -39,6 +42,16 @@ public final class RequestService {
             instance = new RequestService(context);
         }
         return instance;
+    }
+
+    public void get(final String url, final Map<String, String> headers, final Response.Listener<String> listener, final Response.ErrorListener errorListener) {
+        final StringRequest getRequest = new StringRequest(Request.Method.GET, url, listener, errorListener) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return headers == null ? super.getHeaders() : headers;
+            }
+        };
+        this.requestQueue.add(getRequest);
     }
 
     /**

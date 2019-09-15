@@ -45,6 +45,11 @@ public final class Storage {
         deleteValue(context, PASSWORD_KEY);
     }
 
+    public static void clear(final Context context) {
+        deleteUsername(context);
+        deletePassword(context);
+    }
+
     /*
      * Private generic methods
      */
