@@ -31,8 +31,10 @@ public class ApiErr extends ApiResponse implements Serializable {
                     return context.getResources().getString(R.string.error_participant_not_found);
                 case 3:
                     return context.getResources().getString(R.string.error_already_scanned);
+                case 4:
+                    return context.getResources().getString(R.string.error_ticket_cancelled);
                 default:
-                    return "Erreur de l'API inconnue : numéro d'erreur ("+this.errorNumber+") inconnu.";
+                    return "Erreur de l'API inconnue : numéro d'erreur (" + this.errorNumber + ") inconnu.";
             }
         } catch (NullPointerException e) {
             return "Numéro d'erreur NULL, erreur inconnue ou pas d'erreur";

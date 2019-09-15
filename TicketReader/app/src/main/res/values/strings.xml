@@ -49,6 +49,7 @@
     Demander de l\'aide à l\'équipe Web pour ce cas précis.</string>
 
     <string name="error_already_scanned">Le ticket présenté a déjà été scanné.</string>
+    <string name="error_ticket_cancelled">Le ticket présenté a été annulé et n\'est plus valide.</string>
 
 
 </resources>

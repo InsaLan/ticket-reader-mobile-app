@@ -33,12 +33,6 @@ public class ErrorActivity extends AppCompatActivity {
 
     }
 
-
-    @Override
-    public void onBackPressed() {
-        backToMenu();
-    }
-
     public void backToMenu() {
         final Intent intent = new Intent(ErrorActivity.this, MenuActivity.class);
         startActivity(intent);

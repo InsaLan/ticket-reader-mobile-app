@@ -45,8 +45,12 @@ public class TicketDisplayActivity extends AppCompatActivity {
         // Buttons interactions
         menuButton.setOnClickListener(v -> backToMenu());
 
-        if (ticket.isTicketScanned()) {
+
+        if (ticket.isTicketScanned() || ticket.isTicketCancelled()) {
             validateButton.setVisibility(View.GONE);
+            if(ticket.isTicketCancelled()) {
+                errorText.setText(R.string.error_ticket_cancelled);
+            }
         } else {
             // Preparing the validation of the ticket
             validateButton.setOnClickListener(new View.OnClickListener() {
@@ -71,12 +75,6 @@ public class TicketDisplayActivity extends AppCompatActivity {
                 }
             });
         }
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        backToMenu();
     }
 
     public void backToMenu() {

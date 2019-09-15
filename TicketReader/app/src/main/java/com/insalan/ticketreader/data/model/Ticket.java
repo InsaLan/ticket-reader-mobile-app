@@ -22,6 +22,9 @@ public class Ticket extends ApiResponse implements Serializable {
     @SerializedName("ticketScanned")
     private boolean isTicketScanned;
 
+    @SerializedName("ticketCancelled")
+    private boolean isTicketCancelled;
+
     // Added later
     private String token;
 
@@ -53,6 +56,11 @@ public class Ticket extends ApiResponse implements Serializable {
         return token;
     }
 
+    public boolean isTicketCancelled() {
+        return isTicketCancelled;
+    }
+
+
     /*
      * SETTERS
      */
@@ -81,4 +89,7 @@ public class Ticket extends ApiResponse implements Serializable {
         this.token = token;
     }
 
+    public void setTicketCancelled(boolean ticketCancelled) {
+        isTicketCancelled = ticketCancelled;
+    }
 }
