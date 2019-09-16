@@ -14,7 +14,6 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.insalan.ticketreader.R;
 import com.insalan.ticketreader.data.Storage;
-import com.insalan.ticketreader.data.model.ApiErr;
 import com.insalan.ticketreader.data.model.ApiResponse;
 import com.insalan.ticketreader.ui.LoginActivity;
 

@@ -26,9 +26,9 @@ public final class RequestService {
     private RequestService(final Context context) {
         super();
         // FINAL VERSION
-        //this.requestQueue = Volley.newRequestQueue(context);
+        this.requestQueue = Volley.newRequestQueue(context);
         // TEST VERSION
-        this.requestQueue = Volley.newRequestQueue(context, new ProxiedHurlStack());
+        //this.requestQueue = Volley.newRequestQueue(context, new ProxiedHurlStack());
     }
 
     /**

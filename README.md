@@ -1,14 +1,13 @@
 # ticket-reader-mobile-app
-Mobile application used to scan tickets for the InsaLan event.
+Mobile Android application used to scan tickets for the InsaLan event.
 
-# TODO
+## Introduction
+This application was created under Android Studio, on a linux system.
+This app is aimed to work on Android devices. Its purpose is to connect with the InsaLan website, and to check the tickets brought by the players.
 
-- Gérer les erreurs API (en cas de null ou pour display des messages en fonctions du numéro), directement sur la page d'affichage du ticket
-- Afficher les erreurs non liées au ticket sur la page d'erreur
-- Affichage de l'utilisateur connecté
+## TODO
 - Bulle d'informations en bas sur le menu (pour informer lors d'un timeout, au lieu de Toast)
 - Gestion des cookies PHP
-- Vérifier lors de la "connexion" si l'utilisateur a les droits ? (ajouter un appel à l'api "login" ?)
 - Revoir l'UI, les boutons (bouton central avec icône de QR Code, etc)
 - Changer le logo
 - Changer les couleurs (créer des styles directement)
